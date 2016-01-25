@@ -37,7 +37,7 @@
     announcementPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:announceUrl error:nil];
     announcementPlayer.delegate = self;
     
-    [announcementPlayer setVolume:1.0];
+    [announcementPlayer setVolume:0.9];
 
 }
 
@@ -67,7 +67,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)announcementPlayer successfully:(BOOL)flag {
     if(flag == YES && audioPlayer.volume < 1.0) {
-        audioPlayer.volume = audioPlayer.volume + 0.05;
+        audioPlayer.volume = audioPlayer.volume + 0.02;
         [self performSelector:@selector(fadeVolumeUp) withObject:nil afterDelay:0.1];
         _announceIndicator.hidden = true;
     }
@@ -85,7 +85,7 @@
 
 - (IBAction)playAnnounce:(id)sender {
     _announceIndicator.hidden = false;
-    if (audioPlayer.volume > 0.65) {
+    if (audioPlayer.volume > 0.75) {
         audioPlayer.volume = audioPlayer.volume - 0.1;
         [self performSelector:@selector(fadeVolumeDown) withObject:nil afterDelay:0.1];
     }
@@ -101,6 +101,7 @@
     [announcementPlayer stop];
     announcementPlayer.currentTime = 0;
     _audioIndicator.hidden = true;
+    _announceIndicator.hidden = true;
 }
 
 @end

@@ -143,6 +143,11 @@
 					B369DE831C556FBC008C7586 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 8RAVJS9FJT;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
