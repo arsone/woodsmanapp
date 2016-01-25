@@ -13,6 +13,14 @@
 		B369DE921C556FBC008C7586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B369DE901C556FBC008C7586 /* Main.storyboard */; };
 		B369DE941C556FBC008C7586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B369DE931C556FBC008C7586 /* Assets.xcassets */; };
 		B369DE971C556FBC008C7586 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B369DE951C556FBC008C7586 /* LaunchScreen.storyboard */; };
+		B369DE9F1C556FC8008C7586 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B369DE9E1C556FC8008C7586 /* AVFoundation.framework */; };
+		B369DEA11C556FD9008C7586 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B369DEA01C556FD9008C7586 /* UIKit.framework */; };
+		B369DEA31C556FDE008C7586 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B369DEA21C556FDE008C7586 /* Foundation.framework */; };
+		B369DEA51C556FE6008C7586 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B369DEA41C556FE6008C7586 /* CoreGraphics.framework */; };
+		B369DEA71C557013008C7586 /* main_v2.wav in Resources */ = {isa = PBXBuildFile; fileRef = B369DEA61C557013008C7586 /* main_v2.wav */; };
+		B369DEA91C5589B3008C7586 /* preshow_announce.wav in Resources */ = {isa = PBXBuildFile; fileRef = B369DEA81C5589B3008C7586 /* preshow_announce.wav */; };
+		B369DEAB1C558B4E008C7586 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B369DEAA1C558B4E008C7586 /* AudioToolbox.framework */; };
+		B369DEAD1C559041008C7586 /* woodsmanicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B369DEAC1C559041008C7586 /* woodsmanicon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		B369DE931C556FBC008C7586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B369DE961C556FBC008C7586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B369DE981C556FBC008C7586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B369DE9E1C556FC8008C7586 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B369DEA01C556FD9008C7586 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B369DEA21C556FDE008C7586 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B369DEA41C556FE6008C7586 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B369DEA61C557013008C7586 /* main_v2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = main_v2.wav; sourceTree = "<group>"; };
+		B369DEA81C5589B3008C7586 /* preshow_announce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = preshow_announce.wav; sourceTree = "<group>"; };
+		B369DEAA1C558B4E008C7586 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B369DEAC1C559041008C7586 /* woodsmanicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woodsmanicon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +49,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B369DEAB1C558B4E008C7586 /* AudioToolbox.framework in Frameworks */,
+				B369DEA51C556FE6008C7586 /* CoreGraphics.framework in Frameworks */,
+				B369DEA31C556FDE008C7586 /* Foundation.framework in Frameworks */,
+				B369DEA11C556FD9008C7586 /* UIKit.framework in Frameworks */,
+				B369DE9F1C556FC8008C7586 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,8 +63,16 @@
 		B369DE7B1C556FBC008C7586 = {
 			isa = PBXGroup;
 			children = (
+				B369DEAC1C559041008C7586 /* woodsmanicon.png */,
+				B369DEAA1C558B4E008C7586 /* AudioToolbox.framework */,
+				B369DEA41C556FE6008C7586 /* CoreGraphics.framework */,
+				B369DEA21C556FDE008C7586 /* Foundation.framework */,
+				B369DEA01C556FD9008C7586 /* UIKit.framework */,
+				B369DE9E1C556FC8008C7586 /* AVFoundation.framework */,
 				B369DE861C556FBC008C7586 /* WoodsmanPreshowApp */,
 				B369DE851C556FBC008C7586 /* Products */,
+				B369DEA61C557013008C7586 /* main_v2.wav */,
+				B369DEA81C5589B3008C7586 /* preshow_announce.wav */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,9 +166,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B369DEAD1C559041008C7586 /* woodsmanicon.png in Resources */,
 				B369DE971C556FBC008C7586 /* LaunchScreen.storyboard in Resources */,
 				B369DE941C556FBC008C7586 /* Assets.xcassets in Resources */,
 				B369DE921C556FBC008C7586 /* Main.storyboard in Resources */,
+				B369DEA91C5589B3008C7586 /* preshow_announce.wav in Resources */,
+				B369DEA71C557013008C7586 /* main_v2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

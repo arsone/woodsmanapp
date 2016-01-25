@@ -10,6 +10,11 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)playPreshow:(id)sender;
+
+- (IBAction)stopPreshow:(id)sender;
+
+- (IBAction)playAnnounce:(id)sender;
 
 @end
 
