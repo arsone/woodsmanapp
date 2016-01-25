@@ -32,38 +32,6 @@
     _announcementPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:announceUrl error:nil];
 }
 
-//- (void)fadeVolume:(AVAudioPlayer*)player fromVolume:(float)startVolume
-//          toVolume:(float)endVolume overTime:(float)time {
-//    
-//    float fadeSteps = time * 100.0;
-//    
-//    self->_audioPlayer.volume = startVolume;
-//    
-//    for (int step = 0; step < fadeSteps; step++) {
-//        double delayInSeconds = step * (time / fadeSteps);
-//        
-//        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t) (delayInSeconds * NSEC_PER_SEC));
-//        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//            float fraction = ((float)step / fadeSteps);
-//            
-//            self->_audioPlayer.volume = startVolume + (endVolume - startVolume)* fraction;
-//        });
-//    }
-//}
-
-//-(void) fadeOut {
-//    if (self->_audioPlayer.volume <= 0.0f) return;
-//    else {
-//        self->_audioPlayer.volume -=0.1;
-//        __weak typeof (self) weakSelf = self;
-//        [NSThread sleepForTimeInterval:0.2f];
-//        [self.fadingQueue addOperationWithBlock:^{
-//            NSLog(@"fading out %.2f", self->_audioPlayer.volume);
-//            [weakSelf fadeOut];
-//        }];
-//    }
-//}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -81,8 +49,9 @@
 
 - (IBAction)stopPreshow:(id)sender {
     [_audioPlayer stop];
+    _audioPlayer.currentTime = 0;
     [_announcementPlayer stop];
-    
+    _announcementPlayer.currentTime = 0;
 }
 
 @end
