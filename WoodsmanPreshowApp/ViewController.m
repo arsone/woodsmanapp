@@ -37,7 +37,7 @@
     announcementPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:announceUrl error:nil];
     announcementPlayer.delegate = self;
     
-    [announcementPlayer setVolume:0.9];
+    [announcementPlayer setVolume:0.4];
 
 }
 
@@ -62,6 +62,7 @@
     } else {
         [self->audioPlayer stop];
         audioPlayer.currentTime = 0;
+        [audioPlayer setVolume:1.0];
     }
 }
 
@@ -99,6 +100,7 @@
         [self performSelector:@selector(fadeVolumeOut) withObject:nil afterDelay:0.1];
     }
     [announcementPlayer stop];
+    [announcementPlayer setVolume:0.4];
     announcementPlayer.currentTime = 0;
     _audioIndicator.hidden = true;
     _announceIndicator.hidden = true;
