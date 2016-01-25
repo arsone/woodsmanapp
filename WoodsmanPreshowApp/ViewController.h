@@ -16,5 +16,10 @@
 
 - (IBAction)playAnnounce:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *audioIndicator;
+
+@property (weak, nonatomic) IBOutlet UIButton *announceIndicator;
+
+
 @end
 

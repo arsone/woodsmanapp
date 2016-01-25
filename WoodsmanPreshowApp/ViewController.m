@@ -69,6 +69,7 @@
     if(flag == YES && audioPlayer.volume < 1.0) {
         audioPlayer.volume = audioPlayer.volume + 0.05;
         [self performSelector:@selector(fadeVolumeUp) withObject:nil afterDelay:0.1];
+        _announceIndicator.hidden = true;
     }
 }
 
@@ -79,10 +80,12 @@
 
 - (IBAction)playPreshow:(id)sender {
     [audioPlayer play];
+    _audioIndicator.hidden = false;
 }
 
 - (IBAction)playAnnounce:(id)sender {
-    if (audioPlayer.volume > 0.6) {
+    _announceIndicator.hidden = false;
+    if (audioPlayer.volume > 0.65) {
         audioPlayer.volume = audioPlayer.volume - 0.1;
         [self performSelector:@selector(fadeVolumeDown) withObject:nil afterDelay:0.1];
     }
@@ -97,6 +100,7 @@
     }
     [announcementPlayer stop];
     announcementPlayer.currentTime = 0;
+    _audioIndicator.hidden = true;
 }
 
 @end

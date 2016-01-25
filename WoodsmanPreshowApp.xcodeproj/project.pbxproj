@@ -337,6 +337,7 @@
 				B369DE9D1C556FBC008C7586 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
