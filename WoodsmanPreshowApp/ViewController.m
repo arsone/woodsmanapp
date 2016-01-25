@@ -13,6 +13,7 @@
 {
     AVAudioPlayer *audioPlayer;
     AVAudioPlayer *announcementPlayer;
+    void *fadeVolume;
 }
 @end
 
@@ -27,6 +28,7 @@
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
     audioPlayer.delegate = self;
     
+    [audioPlayer setVolume:1.0];
     [audioPlayer setNumberOfLoops:-1];
     
     NSString *announcePath = [NSString stringWithFormat:@"%@/preshow_announce.wav", [[NSBundle mainBundle] resourcePath]];
@@ -34,6 +36,8 @@
     
     announcementPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:announceUrl error:nil];
     announcementPlayer.delegate = self;
+    
+    [announcementPlayer setVolume:1.0];
 
 }
 
@@ -41,12 +45,19 @@
     NSLog(@"audioPlayerDidFinishPlaying");
 }
 
-//- (void)fadeDown:(AVAudioPlayer *)_audioPlayer {
-//    _audioPlayer.volume = _audioPlayer.volume - 0.1;
-//    if (_audioPlayer.volume < 0.1) {
-//        [_audioPlayer stop];
+- (void)fadeVolume {
+    if(self->audioPlayer.volume > 0.1) {
+        self->audioPlayer.volume = self->audioPlayer.volume - 0.1;
+        [self performSelector:@selector(fadeVolume) withObject:nil afterDelay:0.1];
+    }
+}
+
+//- (void)fadeDown:(AVAudioPlayer *)audioPlayer {
+//    audioPlayer.volume = audioPlayer.volume - 0.1;
+//    if (audioPlayer.volume < 0.1) {
+//        [audioPlayer stop];
 //    } else {
-//        [self performSelector:@selector(fadeDown:) withObject:_audioPlayer afterDelay:0.1];
+//        [self performSelector:@selector(fadeDown:) withObject:audioPlayer afterDelay:0.1];
 //    }
 //}
 
@@ -60,6 +71,10 @@
 }
 
 - (IBAction)playAnnounce:(id)sender {
+    if (audioPlayer.volume > 0.5) {
+        audioPlayer.volume = audioPlayer.volume - 0.1;
+        [self performSelector:@selector(fadeVolume) withObject:nil afterDelay:0.1];
+    }
     [announcementPlayer play];
 }
 
