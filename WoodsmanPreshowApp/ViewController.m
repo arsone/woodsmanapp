@@ -37,29 +37,30 @@
     announcementPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:announceUrl error:nil];
     announcementPlayer.delegate = self;
     
-    [announcementPlayer setVolume:1.0];
+    [announcementPlayer setVolume:0.8];
 
 }
 
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    NSLog(@"audioPlayerDidFinishPlaying");
-}
-
-- (void)fadeVolume {
+- (void)fadeVolumeDown {
     if(self->audioPlayer.volume > 0.1) {
         self->audioPlayer.volume = self->audioPlayer.volume - 0.1;
-        [self performSelector:@selector(fadeVolume) withObject:nil afterDelay:0.1];
+        [self performSelector:@selector(fadeVolumeDown) withObject:nil afterDelay:0.1];
     }
 }
 
-//- (void)fadeDown:(AVAudioPlayer *)audioPlayer {
-//    audioPlayer.volume = audioPlayer.volume - 0.1;
-//    if (audioPlayer.volume < 0.1) {
-//        [audioPlayer stop];
-//    } else {
-//        [self performSelector:@selector(fadeDown:) withObject:audioPlayer afterDelay:0.1];
-//    }
-//}
+- (void)fadeVolumeUp {
+    if(self->audioPlayer.volume < 1.0) {
+        self->audioPlayer.volume = self->audioPlayer.volume + 0.1;
+        [self performSelector:@selector(fadeVolumeUp) withObject:nil afterDelay:0.1];
+    }
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)announcementPlayer successfully:(BOOL)flag {
+    if(flag == YES && audioPlayer.volume < 1.0) {
+        audioPlayer.volume = audioPlayer.volume + 0.1;
+        [self performSelector:@selector(fadeVolumeUp) withObject:nil afterDelay:0.1];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -73,9 +74,10 @@
 - (IBAction)playAnnounce:(id)sender {
     if (audioPlayer.volume > 0.5) {
         audioPlayer.volume = audioPlayer.volume - 0.1;
-        [self performSelector:@selector(fadeVolume) withObject:nil afterDelay:0.1];
+        [self performSelector:@selector(fadeVolumeDown) withObject:nil afterDelay:0.1];
     }
     [announcementPlayer play];
+    [self performSelector:@selector(audioPlayerDidFinishPlaying:successfully:) withObject:nil afterDelay:0.1];
 }
 
 - (IBAction)stopPreshow:(id)sender {
