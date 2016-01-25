@@ -21,6 +21,7 @@
 		B369DEA91C5589B3008C7586 /* preshow_announce.wav in Resources */ = {isa = PBXBuildFile; fileRef = B369DEA81C5589B3008C7586 /* preshow_announce.wav */; };
 		B369DEAB1C558B4E008C7586 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B369DEAA1C558B4E008C7586 /* AudioToolbox.framework */; };
 		B369DEAD1C559041008C7586 /* woodsmanicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B369DEAC1C559041008C7586 /* woodsmanicon.png */; };
+		B369DEB31C55BBD2008C7586 /* woodsmanlaunch.png in Resources */ = {isa = PBXBuildFile; fileRef = B369DEB21C55BBD2008C7586 /* woodsmanlaunch.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B369DEA81C5589B3008C7586 /* preshow_announce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = preshow_announce.wav; sourceTree = "<group>"; };
 		B369DEAA1C558B4E008C7586 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B369DEAC1C559041008C7586 /* woodsmanicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woodsmanicon.png; sourceTree = "<group>"; };
+		B369DEB21C55BBD2008C7586 /* woodsmanlaunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woodsmanlaunch.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		B369DE7B1C556FBC008C7586 = {
 			isa = PBXGroup;
 			children = (
+				B369DEB21C55BBD2008C7586 /* woodsmanlaunch.png */,
 				B369DEAC1C559041008C7586 /* woodsmanicon.png */,
 				B369DEAA1C558B4E008C7586 /* AudioToolbox.framework */,
 				B369DEA41C556FE6008C7586 /* CoreGraphics.framework */,
@@ -169,6 +172,7 @@
 				B369DEAD1C559041008C7586 /* woodsmanicon.png in Resources */,
 				B369DE971C556FBC008C7586 /* LaunchScreen.storyboard in Resources */,
 				B369DE941C556FBC008C7586 /* Assets.xcassets in Resources */,
+				B369DEB31C55BBD2008C7586 /* woodsmanlaunch.png in Resources */,
 				B369DE921C556FBC008C7586 /* Main.storyboard in Resources */,
 				B369DEA91C5589B3008C7586 /* preshow_announce.wav in Resources */,
 				B369DEA71C557013008C7586 /* main_v2.wav in Resources */,

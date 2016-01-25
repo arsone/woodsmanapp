@@ -11,8 +11,8 @@
 
 @interface ViewController ()
 {
-    AVAudioPlayer *_audioPlayer;
-    AVAudioPlayer *_announcementPlayer;
+    AVAudioPlayer *audioPlayer;
+    AVAudioPlayer *announcementPlayer;
 }
 @end
 
@@ -24,14 +24,31 @@
     NSString *path = [NSString stringWithFormat:@"%@/main_v2.wav", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundUrl = [NSURL fileURLWithPath:path];
     
-    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+    audioPlayer.delegate = self;
+    
+    [audioPlayer setNumberOfLoops:-1];
     
     NSString *announcePath = [NSString stringWithFormat:@"%@/preshow_announce.wav", [[NSBundle mainBundle] resourcePath]];
     NSURL *announceUrl = [NSURL fileURLWithPath:announcePath];
     
-    _announcementPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:announceUrl error:nil];
+    announcementPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:announceUrl error:nil];
+    announcementPlayer.delegate = self;
+
 }
 
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    NSLog(@"audioPlayerDidFinishPlaying");
+}
+
+//- (void)fadeDown:(AVAudioPlayer *)_audioPlayer {
+//    _audioPlayer.volume = _audioPlayer.volume - 0.1;
+//    if (_audioPlayer.volume < 0.1) {
+//        [_audioPlayer stop];
+//    } else {
+//        [self performSelector:@selector(fadeDown:) withObject:_audioPlayer afterDelay:0.1];
+//    }
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -39,19 +56,18 @@
 }
 
 - (IBAction)playPreshow:(id)sender {
-    [_audioPlayer setNumberOfLoops:-1];
-    [_audioPlayer play];
+    [audioPlayer play];
 }
 
 - (IBAction)playAnnounce:(id)sender {
-    [_announcementPlayer play];
+    [announcementPlayer play];
 }
 
 - (IBAction)stopPreshow:(id)sender {
-    [_audioPlayer stop];
-    _audioPlayer.currentTime = 0;
-    [_announcementPlayer stop];
-    _announcementPlayer.currentTime = 0;
+    [audioPlayer stop];
+    audioPlayer.currentTime = 0;
+    [announcementPlayer stop];
+    announcementPlayer.currentTime = 0;
 }
 
 @end
